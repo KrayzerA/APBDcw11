@@ -13,14 +13,13 @@ namespace JWT.Controllers
         [Authorize]
         public IActionResult Get()
         {
-            return Ok();
+            return Ok("Jestes zalogowany");
         }
 
         [HttpGet("exception")]
         public IActionResult ThrowException()
         {
             throw new Exception("No tragedia :(");
-            return Ok();
         }
     }
 }

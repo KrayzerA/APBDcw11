@@ -4,11 +4,13 @@ using Microsoft.IdentityModel.Tokens;
 using System.Diagnostics;
 using System.Reflection.PortableExecutable;
 using System.Text;
+using JWT.Servicies;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddSingleton<IAuthService, AuthService>();
 
 // === Dodaj serwis odpowiedzialny za autoryzacje tokenu
 builder.Services.AddAuthentication().AddJwtBearer(opt =>
